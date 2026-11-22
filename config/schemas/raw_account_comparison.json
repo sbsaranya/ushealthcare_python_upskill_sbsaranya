@@ -1,0 +1,11 @@
+{
+  "dataset": "account",
+  "file_stem": "raw_account",
+  "run_timestamp": "2026-11-22T11:43:22",
+  "columns_only_in_csv": [],
+  "columns_only_in_json": [],
+  "type_differences": {},
+  "csv_row_count": 15,
+  "json_row_count": 15,
+  "row_count_difference": 0
+}

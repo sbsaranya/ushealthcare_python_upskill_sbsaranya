@@ -1,0 +1,604 @@
+{
+  "dataset": "account",
+  "config_version": 3,
+  "source_file": "data/raw/csv/raw_account.csv",
+  "format": "csv",
+  "json_layout": null,
+  "row_count": 15,
+  "column_count": 29,
+  "run_timestamp": "2026-11-22T11:43:22",
+  "columns": [
+    {
+      "name": "ACCOUNT_HCC_ID",
+      "source_header": "Account ID",
+      "position": 1,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "ACC100245",
+        "ACC100245-001",
+        "ACC100245-002"
+      ],
+      "raw_sample_values": [
+        "ACC100245",
+        "ACC100245-001",
+        "ACC100245-002"
+      ]
+    },
+    {
+      "name": "ACCOUNT_NAME",
+      "source_header": "Account Name",
+      "position": 2,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Lakeshore Precision Manufacturing Inc.",
+        "Corporate Salaried – Grand Rapids",
+        "Hourly Production – Grand Rapids"
+      ],
+      "raw_sample_values": [
+        "Lakeshore Precision Manufacturing Inc.",
+        "Corporate Salaried – Grand Rapids",
+        "Hourly Production – Grand Rapids"
+      ]
+    },
+    {
+      "name": "PARENT_ACCOUNT_HCC_ID",
+      "source_header": "Parent Account ID",
+      "position": 3,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": true,
+      "null_count": 2,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "ACC100245",
+        "ACC100318"
+      ],
+      "raw_sample_values": [
+        "ACC100245",
+        "ACC100318"
+      ]
+    },
+    {
+      "name": "ACCOUNT_LEVEL",
+      "source_header": "Account Level",
+      "position": 4,
+      "inferred_type": "integer",
+      "spark_type": "IntegerType",
+      "type_source": "config",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "1",
+        "2"
+      ],
+      "raw_sample_values": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "name": "ACCOUNT_TYPE",
+      "source_header": "Account Type",
+      "position": 5,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Employer Group (Top Account)",
+        "Child – Location / Class",
+        "Child – Union / Bargaining Unit"
+      ],
+      "raw_sample_values": [
+        "Employer Group (Top Account)",
+        "Child – Location / Class",
+        "Child – Union / Bargaining Unit"
+      ]
+    },
+    {
+      "name": "ACCOUNT_STATUS",
+      "source_header": "Status",
+      "position": 6,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Active",
+        "Termed",
+        "Pending"
+      ],
+      "raw_sample_values": [
+        "Active",
+        "Termed",
+        "Pending"
+      ]
+    },
+    {
+      "name": "EFFECTIVE_DATE",
+      "source_header": "Effective Date",
+      "position": 7,
+      "inferred_type": "date",
+      "spark_type": "DateType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "2019-01-01",
+        "2020-04-01",
+        "2022-01-01"
+      ],
+      "raw_sample_values": [
+        "2019-01-01",
+        "2020-04-01",
+        "2022-01-01"
+      ]
+    },
+    {
+      "name": "TERMINATION_DATE",
+      "source_header": "Termination Date",
+      "position": 8,
+      "inferred_type": "date",
+      "spark_type": "DateType",
+      "type_source": "inferred",
+      "nullable": true,
+      "null_count": 14,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "2025-12-31"
+      ],
+      "raw_sample_values": [
+        "2025-12-31"
+      ]
+    },
+    {
+      "name": "TERM_REASON",
+      "source_header": "Term Reason",
+      "position": 9,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": true,
+      "null_count": 14,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Plant divested (sold)"
+      ],
+      "raw_sample_values": [
+        "Plant divested (sold)"
+      ]
+    },
+    {
+      "name": "STATE_CODE",
+      "source_header": "State",
+      "position": 10,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "MI",
+        "OH",
+        "IN"
+      ],
+      "raw_sample_values": [
+        "MI",
+        "OH",
+        "IN"
+      ]
+    },
+    {
+      "name": "FUNDING_TYPE",
+      "source_header": "Funding Type",
+      "position": 11,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": true,
+      "null_count": 13,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Fully Insured",
+        "Self-Funded (ASO)"
+      ],
+      "raw_sample_values": [
+        "Fully Insured",
+        "Self-Funded (ASO)"
+      ]
+    },
+    {
+      "name": "LINE_OF_BUSINESS",
+      "source_header": "Line of Business",
+      "position": 12,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": true,
+      "null_count": 13,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Commercial"
+      ],
+      "raw_sample_values": [
+        "Commercial"
+      ]
+    },
+    {
+      "name": "MARKET_SEGMENT",
+      "source_header": "Market Segment",
+      "position": 13,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": true,
+      "null_count": 13,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Large Group (51+)",
+        "Jumbo Group (1,000+)"
+      ],
+      "raw_sample_values": [
+        "Large Group (51+)",
+        "Jumbo Group (1,000+)"
+      ]
+    },
+    {
+      "name": "PLAN_YEAR_TYPE",
+      "source_header": "Plan Year",
+      "position": 14,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": true,
+      "null_count": 13,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Calendar (Jan–Dec)",
+        "Non-Calendar (Jul–Jun)"
+      ],
+      "raw_sample_values": [
+        "Calendar (Jan–Dec)",
+        "Non-Calendar (Jul–Jun)"
+      ]
+    },
+    {
+      "name": "RENEWAL_MONTH",
+      "source_header": "Renewal Month",
+      "position": 15,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": true,
+      "null_count": 13,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "January",
+        "July"
+      ],
+      "raw_sample_values": [
+        "January",
+        "July"
+      ]
+    },
+    {
+      "name": "SITUS_STATE_CODE",
+      "source_header": "Situs State",
+      "position": 16,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": true,
+      "null_count": 13,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "MI",
+        "TX"
+      ],
+      "raw_sample_values": [
+        "MI",
+        "TX"
+      ]
+    },
+    {
+      "name": "INDUSTRY_NAICS",
+      "source_header": "Industry (NAICS)",
+      "position": 17,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "config",
+      "nullable": true,
+      "null_count": 13,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "332710 – Machine Shops",
+        "622110 – General Hospitals"
+      ],
+      "raw_sample_values": [
+        "332710 – Machine Shops",
+        "622110 – General Hospitals"
+      ]
+    },
+    {
+      "name": "TAX_ID_EIN",
+      "source_header": "Tax ID (EIN – synthetic)",
+      "position": 18,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "config",
+      "nullable": true,
+      "null_count": 13,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "********67",
+        "********21"
+      ],
+      "raw_sample_values": [
+        "********67",
+        "********21"
+      ]
+    },
+    {
+      "name": "EMPLOYEE_CLASS",
+      "source_header": "Employee Class",
+      "position": 19,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": true,
+      "null_count": 2,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Salaried Full-Time",
+        "Hourly Full-Time",
+        "Hourly Union"
+      ],
+      "raw_sample_values": [
+        "Salaried Full-Time",
+        "Hourly Full-Time",
+        "Hourly Union"
+      ]
+    },
+    {
+      "name": "UNION_CODE",
+      "source_header": "Union Code",
+      "position": 20,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": true,
+      "null_count": 14,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "UAW-1250"
+      ],
+      "raw_sample_values": [
+        "UAW-1250"
+      ]
+    },
+    {
+      "name": "WAITING_PERIOD",
+      "source_header": "Waiting Period",
+      "position": 21,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": true,
+      "null_count": 2,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "1st of month after 30 days",
+        "1st of month after 60 days",
+        "1st of month after 90 days"
+      ],
+      "raw_sample_values": [
+        "1st of month after 30 days",
+        "1st of month after 60 days",
+        "1st of month after 90 days"
+      ]
+    },
+    {
+      "name": "MIN_HOURS_PER_WEEK",
+      "source_header": "Min Hours / Week",
+      "position": 22,
+      "inferred_type": "integer",
+      "spark_type": "IntegerType",
+      "type_source": "config",
+      "nullable": true,
+      "null_count": 5,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "30",
+        "32",
+        "24"
+      ],
+      "raw_sample_values": [
+        "30",
+        "32",
+        "24"
+      ]
+    },
+    {
+      "name": "ELIGIBLE_EMPLOYEE_COUNT",
+      "source_header": "Eligible Employees",
+      "position": 23,
+      "inferred_type": "integer",
+      "spark_type": "IntegerType",
+      "type_source": "config",
+      "nullable": true,
+      "null_count": 2,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "310",
+        "520",
+        "245"
+      ],
+      "raw_sample_values": [
+        "310",
+        "520",
+        "245"
+      ]
+    },
+    {
+      "name": "EMPLOYER_CONTRIB_PCT_EE",
+      "source_header": "Employer Contribution % (EE-only)",
+      "position": 24,
+      "inferred_type": "percent",
+      "spark_type": "DecimalType(5,4)",
+      "type_source": "config",
+      "nullable": true,
+      "null_count": 2,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "0.8000",
+        "0.7500",
+        "0.8500"
+      ],
+      "raw_sample_values": [
+        "80%",
+        "75%",
+        "85%"
+      ]
+    },
+    {
+      "name": "SEPARATE_BILL_FLAG",
+      "source_header": "Separate Bill (Y/N)",
+      "position": 25,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": true,
+      "null_count": 2,
+      "cast_failures": 0,
+      "flags": {
+        "boolean_candidate": true
+      },
+      "sample_values": [
+        "N",
+        "Y"
+      ],
+      "raw_sample_values": [
+        "N",
+        "Y"
+      ]
+    },
+    {
+      "name": "BILLING_FREQUENCY",
+      "source_header": "Billing Frequency",
+      "position": 26,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": true,
+      "null_count": 13,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Monthly"
+      ],
+      "raw_sample_values": [
+        "Monthly"
+      ]
+    },
+    {
+      "name": "STOP_LOSS_SPECIFIC_DEDUCTIBLE_AMT",
+      "source_header": "Stop-Loss Specific Deductible",
+      "position": 27,
+      "inferred_type": "currency",
+      "spark_type": "DecimalType(18,2)",
+      "type_source": "config",
+      "nullable": true,
+      "null_count": 14,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "250000.00"
+      ],
+      "raw_sample_values": [
+        "$250,000.00"
+      ]
+    },
+    {
+      "name": "BROKER_NAME",
+      "source_header": "Broker",
+      "position": 28,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": true,
+      "null_count": 13,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Great Lakes Benefits Advisors",
+        "Lone Star Benefit Partners"
+      ],
+      "raw_sample_values": [
+        "Great Lakes Benefits Advisors",
+        "Lone Star Benefit Partners"
+      ]
+    },
+    {
+      "name": "ACCOUNT_MANAGER_NAME",
+      "source_header": "Account Manager",
+      "position": 29,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": true,
+      "null_count": 13,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "J. Moreno",
+        "K. Patel"
+      ],
+      "raw_sample_values": [
+        "J. Moreno",
+        "K. Patel"
+      ]
+    }
+  ]
+}

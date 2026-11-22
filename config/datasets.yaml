@@ -1,0 +1,104 @@
+# =====================================================================
+# datasets.yaml - dataset settings for src/common/schema_reader.py
+# Location: config/datasets.yaml
+#
+# Adding a new dataset = add an entry under "datasets". No script change.
+# Column names in every rule below use the STANDARDIZED names (right-hand
+# side of header_map), except header_map's own keys (raw file headers).
+# =====================================================================
+
+version: 3
+
+# ---------------------------------------------------------------------
+# Defaults - apply to every dataset, including files not listed below
+# ---------------------------------------------------------------------
+defaults:
+  # Columns ending with these always stay text (IDs and codes keep leading zeros)
+  force_string_suffixes: ["_ID", "_CODE", "_HCC_ID"]
+
+  # Columns that always stay text, by exact name
+  force_string_columns: ["SSN", "ZIP_CODE", "PHONE_NUMBER"]
+
+  # Columns masked everywhere (schema samples, preview, logs)
+  sensitive_columns:
+    - SSN
+    - MEDICARE_BENEFICIARY_ID
+    - MEDICAID_ID
+    - EMAIL_ADDRESS
+    - PHONE_NUMBER
+    - DATE_OF_BIRTH
+    - TAX_ID_EIN
+
+  # How many trailing characters stay visible when masking
+  mask_visible_chars: 2
+
+# ---------------------------------------------------------------------
+# Datasets - processed in load_order (dependency order)
+# ---------------------------------------------------------------------
+datasets:
+
+  account:
+    description: Employer groups (level 1) and their child classes / locations (level 2)
+    file_stem: raw_account          # matches raw_account.csv and raw_account.json
+    load_order: 1
+    depends_on: []                  # root of the chain
+
+    # Raw business header -> standardized UPPER_SNAKE name
+    header_map:
+      "Account ID": ACCOUNT_HCC_ID
+      "Account Name": ACCOUNT_NAME
+      "Parent Account ID": PARENT_ACCOUNT_HCC_ID
+      "Account Level": ACCOUNT_LEVEL
+      "Account Type": ACCOUNT_TYPE
+      "Status": ACCOUNT_STATUS
+      "Effective Date": EFFECTIVE_DATE
+      "Termination Date": TERMINATION_DATE
+      "Term Reason": TERM_REASON
+      "State": STATE_CODE
+      "Funding Type": FUNDING_TYPE
+      "Line of Business": LINE_OF_BUSINESS
+      "Market Segment": MARKET_SEGMENT
+      "Plan Year": PLAN_YEAR_TYPE
+      "Renewal Month": RENEWAL_MONTH
+      "Situs State": SITUS_STATE_CODE
+      "Industry (NAICS)": INDUSTRY_NAICS
+      "Tax ID (EIN – synthetic)": TAX_ID_EIN
+      "Employee Class": EMPLOYEE_CLASS
+      "Union Code": UNION_CODE
+      "Waiting Period": WAITING_PERIOD
+      "Min Hours / Week": MIN_HOURS_PER_WEEK
+      "Eligible Employees": ELIGIBLE_EMPLOYEE_COUNT
+      "Employer Contribution % (EE-only)": EMPLOYER_CONTRIB_PCT_EE
+      "Separate Bill (Y/N)": SEPARATE_BILL_FLAG
+      "Billing Frequency": BILLING_FREQUENCY
+      "Stop-Loss Specific Deductible": STOP_LOSS_SPECIFIC_DEDUCTIBLE_AMT
+      "Broker": BROKER_NAME
+      "Account Manager": ACCOUNT_MANAGER_NAME
+
+    # Declared types override inference. Allowed: string, date, integer,
+    # decimal, percent ("80%" -> 0.80), currency ("$250,000.00" -> 250000.00)
+    column_types:
+      ACCOUNT_LEVEL: integer
+      MIN_HOURS_PER_WEEK: integer
+      ELIGIBLE_EMPLOYEE_COUNT: integer
+      EMPLOYER_CONTRIB_PCT_EE: percent
+      STOP_LOSS_SPECIFIC_DEDUCTIBLE_AMT: currency
+      INDUSTRY_NAICS: string        # "332710 – Machine Shops"; split into code/description in Silver
+      TAX_ID_EIN: string
+
+    # Added to defaults.sensitive_columns for this dataset only
+    sensitive_columns: []
+
+    # Default columns for --preview keys
+    preview_columns:
+      - ACCOUNT_HCC_ID
+      - ACCOUNT_NAME
+      - PARENT_ACCOUNT_HCC_ID
+      - ACCOUNT_LEVEL
+      - ACCOUNT_STATUS
+      - EFFECTIVE_DATE
+
+    # Documentation only for now - checked in the Silver layer, not by the schema reader
+    relationships:
+      - column: PARENT_ACCOUNT_HCC_ID
+        references: account.ACCOUNT_HCC_ID   # self-reference: child -> top account
