@@ -102,3 +102,47 @@ datasets:
     relationships:
       - column: PARENT_ACCOUNT_HCC_ID
         references: account.ACCOUNT_HCC_ID   # self-reference: child -> top account
+
+  product:
+    description: Commercial products (fully insured and self-funded ASO) that plans are built on
+    file_stem: raw_product          # matches raw_product.csv and raw_product.json
+    load_order: 2
+    depends_on: []                  # reference data; no parent
+
+    header_map:
+      "Product ID": PRODUCT_ID
+      "Product Name": PRODUCT_NAME
+      "Line of Business": LINE_OF_BUSINESS
+      "Funding Type": FUNDING_TYPE
+      "Market Segment": MARKET_SEGMENT
+      "Coverage Category": COVERAGE_CATEGORY
+      "Status": PRODUCT_STATUS
+      "Effective Date": EFFECTIVE_DATE
+      "Termination Date": TERMINATION_DATE
+      "Regulated By": REGULATED_BY
+      "Filing State": FILING_STATE_CODE
+      "Network Family": NETWORK_FAMILY
+      "Total Plans": TOTAL_PLAN_COUNT
+      "Active Plans": ACTIVE_PLAN_COUNT
+
+    column_types:
+      EFFECTIVE_DATE: date
+      TERMINATION_DATE: date        # empty for every product today; declared so it isn't inferred as all-null text
+      TOTAL_PLAN_COUNT: integer
+      ACTIVE_PLAN_COUNT: integer
+      FILING_STATE_CODE: string     # "N/A (not state-filed)" for ERISA products; becomes null + flag in Silver
+      NETWORK_FAMILY: string        # list in one field; networks become their own entity later
+
+    sensitive_columns: []           # reference data: no PHI, no confidential identifiers
+
+    preview_columns:
+      - PRODUCT_ID
+      - PRODUCT_NAME
+      - FUNDING_TYPE
+      - PRODUCT_STATUS
+      - EFFECTIVE_DATE
+      - ACTIVE_PLAN_COUNT
+
+    # Documentation only - checked in the Silver layer
+    # TOTAL_PLAN_COUNT / ACTIVE_PLAN_COUNT must match the plan dataset (plan.PRODUCT_ID) once it exists
+    relationships: []

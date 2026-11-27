@@ -1,7 +1,7 @@
 {
   "dataset": "account",
   "file_stem": "raw_account",
-  "run_timestamp": "2026-11-22T11:43:22",
+  "run_timestamp": "2026-11-27T08:43:06",
   "columns_only_in_csv": [],
   "columns_only_in_json": [],
   "type_differences": {},

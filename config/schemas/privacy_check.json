@@ -1,17 +1,21 @@
 {
-  "run_timestamp": "2026-11-22T11:43:22",
+  "run_timestamp": "2026-11-27T08:43:06",
   "config_version": 3,
   "status": "PASS",
   "files_scanned": [
     "config/schemas/raw_account_csv_schema.json",
     "config/schemas/raw_account_json_schema.json",
+    "config/schemas/raw_product_csv_schema.json",
+    "config/schemas/raw_product_json_schema.json",
     "config/schemas/raw_account_comparison.json",
-    "config/logs/schema_reader_2026-11-22.log"
+    "config/schemas/raw_product_comparison.json",
+    "config/logs/schema_reader_2026-11-27.log"
   ],
   "sensitive_columns_checked": {
     "account": {
       "TAX_ID_EIN": 2
-    }
+    },
+    "product": {}
   },
   "leaks": []
 }

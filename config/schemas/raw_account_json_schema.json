@@ -6,7 +6,7 @@
   "json_layout": "json_lines",
   "row_count": 15,
   "column_count": 29,
-  "run_timestamp": "2026-11-22T11:43:22",
+  "run_timestamp": "2026-11-27T08:43:06",
   "columns": [
     {
       "name": "ACCOUNT_HCC_ID",
@@ -428,12 +428,12 @@
       "sample_values": [
         "1st of month after 30 days",
         "1st of month after 60 days",
-        "1st of month after 90 days"
+        "90 days (ACA max)"
       ],
       "raw_sample_values": [
         "1st of month after 30 days",
         "1st of month after 60 days",
-        "1st of month after 90 days"
+        "90 days (ACA max)"
       ]
     },
     {

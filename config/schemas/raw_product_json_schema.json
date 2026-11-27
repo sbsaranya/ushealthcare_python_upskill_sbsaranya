@@ -1,0 +1,282 @@
+{
+  "dataset": "product",
+  "config_version": 3,
+  "source_file": "data/raw/json/raw_product.json",
+  "format": "json",
+  "json_layout": "json_lines",
+  "row_count": 2,
+  "column_count": 14,
+  "run_timestamp": "2026-11-27T08:43:06",
+  "columns": [
+    {
+      "name": "PRODUCT_ID",
+      "source_header": "Product ID",
+      "position": 1,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "PRD-GL-COMM",
+        "PRD-LS-ASO"
+      ],
+      "raw_sample_values": [
+        "PRD-GL-COMM",
+        "PRD-LS-ASO"
+      ]
+    },
+    {
+      "name": "PRODUCT_NAME",
+      "source_header": "Product Name",
+      "position": 2,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Great Lakes Commercial (Fully Insured)",
+        "Lone Star Self-Funded Administration"
+      ],
+      "raw_sample_values": [
+        "Great Lakes Commercial (Fully Insured)",
+        "Lone Star Self-Funded Administration"
+      ]
+    },
+    {
+      "name": "LINE_OF_BUSINESS",
+      "source_header": "Line of Business",
+      "position": 3,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Commercial"
+      ],
+      "raw_sample_values": [
+        "Commercial"
+      ]
+    },
+    {
+      "name": "FUNDING_TYPE",
+      "source_header": "Funding Type",
+      "position": 4,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Fully Insured",
+        "Self-Funded (ASO)"
+      ],
+      "raw_sample_values": [
+        "Fully Insured",
+        "Self-Funded (ASO)"
+      ]
+    },
+    {
+      "name": "MARKET_SEGMENT",
+      "source_header": "Market Segment",
+      "position": 5,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Large Group (51+)",
+        "Jumbo Group (1,000+)"
+      ],
+      "raw_sample_values": [
+        "Large Group (51+)",
+        "Jumbo Group (1,000+)"
+      ]
+    },
+    {
+      "name": "COVERAGE_CATEGORY",
+      "source_header": "Coverage Category",
+      "position": 6,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Medical + Rx"
+      ],
+      "raw_sample_values": [
+        "Medical + Rx"
+      ]
+    },
+    {
+      "name": "PRODUCT_STATUS",
+      "source_header": "Status",
+      "position": 7,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Active"
+      ],
+      "raw_sample_values": [
+        "Active"
+      ]
+    },
+    {
+      "name": "EFFECTIVE_DATE",
+      "source_header": "Effective Date",
+      "position": 8,
+      "inferred_type": "date",
+      "spark_type": "DateType",
+      "type_source": "config",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "2019-01-01",
+        "2021-07-01"
+      ],
+      "raw_sample_values": [
+        "2019-01-01",
+        "2021-07-01"
+      ]
+    },
+    {
+      "name": "TERMINATION_DATE",
+      "source_header": "Termination Date",
+      "position": 9,
+      "inferred_type": "date",
+      "spark_type": "DateType",
+      "type_source": "config",
+      "nullable": true,
+      "null_count": 2,
+      "cast_failures": 0,
+      "flags": {
+        "all_null": true
+      },
+      "sample_values": [],
+      "raw_sample_values": []
+    },
+    {
+      "name": "REGULATED_BY",
+      "source_header": "Regulated By",
+      "position": 10,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "State insurance department",
+        "Federal – ERISA (US Dept. of Labor)"
+      ],
+      "raw_sample_values": [
+        "State insurance department",
+        "Federal – ERISA (US Dept. of Labor)"
+      ]
+    },
+    {
+      "name": "FILING_STATE_CODE",
+      "source_header": "Filing State",
+      "position": 11,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "config",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "MI",
+        "N/A (not state-filed)"
+      ],
+      "raw_sample_values": [
+        "MI",
+        "N/A (not state-filed)"
+      ]
+    },
+    {
+      "name": "NETWORK_FAMILY",
+      "source_header": "Network Family",
+      "position": 12,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "config",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Great Lakes (Broad PPO, HMO Select)",
+        "Lone Star (National PPO, EPO Narrow)"
+      ],
+      "raw_sample_values": [
+        "Great Lakes (Broad PPO, HMO Select)",
+        "Lone Star (National PPO, EPO Narrow)"
+      ]
+    },
+    {
+      "name": "TOTAL_PLAN_COUNT",
+      "source_header": "Total Plans",
+      "position": 13,
+      "inferred_type": "integer",
+      "spark_type": "IntegerType",
+      "type_source": "config",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "4",
+        "2"
+      ],
+      "raw_sample_values": [
+        "4",
+        "2"
+      ]
+    },
+    {
+      "name": "ACTIVE_PLAN_COUNT",
+      "source_header": "Active Plans",
+      "position": 14,
+      "inferred_type": "integer",
+      "spark_type": "IntegerType",
+      "type_source": "config",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "3",
+        "1"
+      ],
+      "raw_sample_values": [
+        "3",
+        "1"
+      ]
+    }
+  ]
+}
