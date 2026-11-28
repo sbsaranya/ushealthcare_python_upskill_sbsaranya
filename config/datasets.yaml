@@ -146,3 +146,70 @@ datasets:
     # Documentation only - checked in the Silver layer
     # TOTAL_PLAN_COUNT / ACTIVE_PLAN_COUNT must match the plan dataset (plan.PRODUCT_ID) once it exists
     relationships: []
+
+  plan:
+    description: Benefit plans (PPO, HMO, HDHP, EPO) built on each product, with cost-sharing design
+    file_stem: raw_plan             # matches raw_plan.csv and raw_plan.json
+    load_order: 3
+    depends_on: [product]           # every plan belongs to a product
+
+    header_map:
+      "Benefit Plan ID": BENEFIT_PLAN_ID
+      "Plan Name": PLAN_NAME
+      "Product ID": PRODUCT_ID
+      "Product Name": PRODUCT_NAME
+      "Plan Type": PLAN_TYPE
+      "Coverage Type": COVERAGE_TYPE
+      "Funding Type": FUNDING_TYPE
+      "Status": PLAN_STATUS
+      "Effective Date": EFFECTIVE_DATE
+      "Termination Date": TERMINATION_DATE
+      "Term Reason": TERM_REASON
+      "Replaced By Plan ID": REPLACED_BY_PLAN_ID
+      "Network": NETWORK_NAME
+      "Referral Required": REFERRAL_REQUIRED_FLAG
+      "HSA Eligible": HSA_ELIGIBLE_FLAG
+      "Deductible – Individual": DEDUCTIBLE_INDIVIDUAL_AMT
+      "Deductible – Family": DEDUCTIBLE_FAMILY_AMT
+      "Deductible Type": DEDUCTIBLE_TYPE
+      "OOP Max – Individual": OOP_MAX_INDIVIDUAL_AMT
+      "OOP Max – Family": OOP_MAX_FAMILY_AMT
+      "OOP Max Type": OOP_MAX_TYPE
+      "Coinsurance (Member Pays)": COINSURANCE_MEMBER_PCT
+      "PCP Copay": PCP_COPAY
+      "Specialist Copay": SPECIALIST_COPAY
+      "ER Copay": ER_COPAY
+      "Rx Structure": RX_STRUCTURE
+      "Accumulator Period": ACCUMULATOR_PERIOD
+
+    column_types:
+      EFFECTIVE_DATE: date
+      TERMINATION_DATE: date
+      DEDUCTIBLE_INDIVIDUAL_AMT: currency   # "$1,000.00" -> 1000.00
+      DEDUCTIBLE_FAMILY_AMT: currency
+      OOP_MAX_INDIVIDUAL_AMT: currency
+      OOP_MAX_FAMILY_AMT: currency
+      COINSURANCE_MEMBER_PCT: percent       # "20%" -> 0.2000
+      PCP_COPAY: string             # "$25.00" or "Deductible, then 10%" (HDHP); split into amount + flag in Silver
+      SPECIALIST_COPAY: string
+      ER_COPAY: string
+      RX_STRUCTURE: string          # tier text, e.g. "4-tier: $10 / $35 / $70 / 25%"
+
+    sensitive_columns: []           # reference data: no PHI, no confidential identifiers
+
+    preview_columns:
+      - BENEFIT_PLAN_ID
+      - PLAN_NAME
+      - PRODUCT_ID
+      - PLAN_STATUS
+      - DEDUCTIBLE_INDIVIDUAL_AMT
+      - DEDUCTIBLE_TYPE
+
+    # Documentation only - checked in the Silver layer
+    # Also in Silver: PRODUCT_NAME / FUNDING_TYPE must match the product record;
+    # HDHP plans must meet the IRS HDHP limits for the plan year.
+    relationships:
+      - column: PRODUCT_ID
+        references: product.PRODUCT_ID
+      - column: REPLACED_BY_PLAN_ID
+        references: plan.BENEFIT_PLAN_ID    # self-reference: retired plan -> replacement plan

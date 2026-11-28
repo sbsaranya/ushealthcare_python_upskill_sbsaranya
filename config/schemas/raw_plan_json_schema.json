@@ -1,0 +1,578 @@
+{
+  "dataset": "plan",
+  "config_version": 3,
+  "source_file": "data/raw/json/raw_plan.json",
+  "format": "json",
+  "json_layout": "json_lines",
+  "row_count": 6,
+  "column_count": 27,
+  "run_timestamp": "2026-11-28T15:34:24",
+  "columns": [
+    {
+      "name": "BENEFIT_PLAN_ID",
+      "source_header": "Benefit Plan ID",
+      "position": 1,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "BP-1001",
+        "BP-1002",
+        "BP-1003"
+      ],
+      "raw_sample_values": [
+        "BP-1001",
+        "BP-1002",
+        "BP-1003"
+      ]
+    },
+    {
+      "name": "PLAN_NAME",
+      "source_header": "Plan Name",
+      "position": 2,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Great Lakes PPO 500",
+        "Great Lakes HMO 1000",
+        "Great Lakes HDHP 3000 HSA"
+      ],
+      "raw_sample_values": [
+        "Great Lakes PPO 500",
+        "Great Lakes HMO 1000",
+        "Great Lakes HDHP 3000 HSA"
+      ]
+    },
+    {
+      "name": "PRODUCT_ID",
+      "source_header": "Product ID",
+      "position": 3,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "PRD-GL-COMM",
+        "PRD-LS-ASO"
+      ],
+      "raw_sample_values": [
+        "PRD-GL-COMM",
+        "PRD-LS-ASO"
+      ]
+    },
+    {
+      "name": "PRODUCT_NAME",
+      "source_header": "Product Name",
+      "position": 4,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Great Lakes Commercial (Fully Insured)",
+        "Lone Star Self-Funded Administration"
+      ],
+      "raw_sample_values": [
+        "Great Lakes Commercial (Fully Insured)",
+        "Lone Star Self-Funded Administration"
+      ]
+    },
+    {
+      "name": "PLAN_TYPE",
+      "source_header": "Plan Type",
+      "position": 5,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "PPO",
+        "HMO",
+        "HDHP (PPO network)"
+      ],
+      "raw_sample_values": [
+        "PPO",
+        "HMO",
+        "HDHP (PPO network)"
+      ]
+    },
+    {
+      "name": "COVERAGE_TYPE",
+      "source_header": "Coverage Type",
+      "position": 6,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Medical + Rx"
+      ],
+      "raw_sample_values": [
+        "Medical + Rx"
+      ]
+    },
+    {
+      "name": "FUNDING_TYPE",
+      "source_header": "Funding Type",
+      "position": 7,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Fully Insured",
+        "Self-Funded (ASO)"
+      ],
+      "raw_sample_values": [
+        "Fully Insured",
+        "Self-Funded (ASO)"
+      ]
+    },
+    {
+      "name": "PLAN_STATUS",
+      "source_header": "Status",
+      "position": 8,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Active",
+        "Termed"
+      ],
+      "raw_sample_values": [
+        "Active",
+        "Termed"
+      ]
+    },
+    {
+      "name": "EFFECTIVE_DATE",
+      "source_header": "Effective Date",
+      "position": 9,
+      "inferred_type": "date",
+      "spark_type": "DateType",
+      "type_source": "config",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "2019-01-01",
+        "2021-01-01",
+        "2021-07-01"
+      ],
+      "raw_sample_values": [
+        "2019-01-01",
+        "2021-01-01",
+        "2021-07-01"
+      ]
+    },
+    {
+      "name": "TERMINATION_DATE",
+      "source_header": "Termination Date",
+      "position": 10,
+      "inferred_type": "date",
+      "spark_type": "DateType",
+      "type_source": "config",
+      "nullable": true,
+      "null_count": 4,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "2023-12-31",
+        "2025-06-30"
+      ],
+      "raw_sample_values": [
+        "2023-12-31",
+        "2025-06-30"
+      ]
+    },
+    {
+      "name": "TERM_REASON",
+      "source_header": "Term Reason",
+      "position": 11,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": true,
+      "null_count": 4,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Plan retired – members moved to replacement plan",
+        "Employer dropped EPO option at Jul-2025 renewal"
+      ],
+      "raw_sample_values": [
+        "Plan retired – members moved to replacement plan",
+        "Employer dropped EPO option at Jul-2025 renewal"
+      ]
+    },
+    {
+      "name": "REPLACED_BY_PLAN_ID",
+      "source_header": "Replaced By Plan ID",
+      "position": 12,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": true,
+      "null_count": 5,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "BP-1001"
+      ],
+      "raw_sample_values": [
+        "BP-1001"
+      ]
+    },
+    {
+      "name": "NETWORK_NAME",
+      "source_header": "Network",
+      "position": 13,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Great Lakes Broad PPO",
+        "Great Lakes HMO Select",
+        "Lone Star National PPO"
+      ],
+      "raw_sample_values": [
+        "Great Lakes Broad PPO",
+        "Great Lakes HMO Select",
+        "Lone Star National PPO"
+      ]
+    },
+    {
+      "name": "REFERRAL_REQUIRED_FLAG",
+      "source_header": "Referral Required",
+      "position": 14,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {
+        "boolean_candidate": true
+      },
+      "sample_values": [
+        "N",
+        "Y"
+      ],
+      "raw_sample_values": [
+        "N",
+        "Y"
+      ]
+    },
+    {
+      "name": "HSA_ELIGIBLE_FLAG",
+      "source_header": "HSA Eligible",
+      "position": 15,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {
+        "boolean_candidate": true
+      },
+      "sample_values": [
+        "N",
+        "Y"
+      ],
+      "raw_sample_values": [
+        "N",
+        "Y"
+      ]
+    },
+    {
+      "name": "DEDUCTIBLE_INDIVIDUAL_AMT",
+      "source_header": "Deductible – Individual",
+      "position": 16,
+      "inferred_type": "currency",
+      "spark_type": "DecimalType(18,2)",
+      "type_source": "config",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "500.00",
+        "1000.00",
+        "3000.00"
+      ],
+      "raw_sample_values": [
+        "$500.00",
+        "$1,000.00",
+        "$3,000.00"
+      ]
+    },
+    {
+      "name": "DEDUCTIBLE_FAMILY_AMT",
+      "source_header": "Deductible – Family",
+      "position": 17,
+      "inferred_type": "currency",
+      "spark_type": "DecimalType(18,2)",
+      "type_source": "config",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "1000.00",
+        "2000.00",
+        "6000.00"
+      ],
+      "raw_sample_values": [
+        "$1,000.00",
+        "$2,000.00",
+        "$6,000.00"
+      ]
+    },
+    {
+      "name": "DEDUCTIBLE_TYPE",
+      "source_header": "Deductible Type",
+      "position": 18,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Embedded",
+        "Aggregate"
+      ],
+      "raw_sample_values": [
+        "Embedded",
+        "Aggregate"
+      ]
+    },
+    {
+      "name": "OOP_MAX_INDIVIDUAL_AMT",
+      "source_header": "OOP Max – Individual",
+      "position": 19,
+      "inferred_type": "currency",
+      "spark_type": "DecimalType(18,2)",
+      "type_source": "config",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "3000.00",
+        "4500.00",
+        "6000.00"
+      ],
+      "raw_sample_values": [
+        "$3,000.00",
+        "$4,500.00",
+        "$6,000.00"
+      ]
+    },
+    {
+      "name": "OOP_MAX_FAMILY_AMT",
+      "source_header": "OOP Max – Family",
+      "position": 20,
+      "inferred_type": "currency",
+      "spark_type": "DecimalType(18,2)",
+      "type_source": "config",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "6000.00",
+        "9000.00",
+        "12000.00"
+      ],
+      "raw_sample_values": [
+        "$6,000.00",
+        "$9,000.00",
+        "$12,000.00"
+      ]
+    },
+    {
+      "name": "OOP_MAX_TYPE",
+      "source_header": "OOP Max Type",
+      "position": 21,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Embedded"
+      ],
+      "raw_sample_values": [
+        "Embedded"
+      ]
+    },
+    {
+      "name": "COINSURANCE_MEMBER_PCT",
+      "source_header": "Coinsurance (Member Pays)",
+      "position": 22,
+      "inferred_type": "percent",
+      "spark_type": "DecimalType(5,4)",
+      "type_source": "config",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "0.2000",
+        "0.1000",
+        "0.3000"
+      ],
+      "raw_sample_values": [
+        "20%",
+        "10%",
+        "30%"
+      ]
+    },
+    {
+      "name": "PCP_COPAY",
+      "source_header": "PCP Copay",
+      "position": 23,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "config",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "$25.00",
+        "$20.00",
+        "Deductible, then 10%"
+      ],
+      "raw_sample_values": [
+        "$25.00",
+        "$20.00",
+        "Deductible, then 10%"
+      ]
+    },
+    {
+      "name": "SPECIALIST_COPAY",
+      "source_header": "Specialist Copay",
+      "position": 24,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "config",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "$50.00",
+        "$40.00",
+        "Deductible, then 10%"
+      ],
+      "raw_sample_values": [
+        "$50.00",
+        "$40.00",
+        "Deductible, then 10%"
+      ]
+    },
+    {
+      "name": "ER_COPAY",
+      "source_header": "ER Copay",
+      "position": 25,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "config",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "$250.00",
+        "$300.00",
+        "Deductible, then 10%"
+      ],
+      "raw_sample_values": [
+        "$250.00",
+        "$300.00",
+        "Deductible, then 10%"
+      ]
+    },
+    {
+      "name": "RX_STRUCTURE",
+      "source_header": "Rx Structure",
+      "position": 26,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "config",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "4-tier: $10 / $35 / $70 / 25%",
+        "4-tier: $10 / $40 / $75 / 30%",
+        "Deductible, then 10% (preventive Rx $0)"
+      ],
+      "raw_sample_values": [
+        "4-tier: $10 / $35 / $70 / 25%",
+        "4-tier: $10 / $40 / $75 / 30%",
+        "Deductible, then 10% (preventive Rx $0)"
+      ]
+    },
+    {
+      "name": "ACCUMULATOR_PERIOD",
+      "source_header": "Accumulator Period",
+      "position": 27,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Calendar Year",
+        "Plan Year (Jul–Jun)"
+      ],
+      "raw_sample_values": [
+        "Calendar Year",
+        "Plan Year (Jul–Jun)"
+      ]
+    }
+  ]
+}
