@@ -1,0 +1,100 @@
+{
+  "dataset": "transaction_code",
+  "config_version": 3,
+  "source_file": "data/raw/csv/raw_transaction_code.csv",
+  "format": "csv",
+  "json_layout": null,
+  "row_count": 6,
+  "column_count": 4,
+  "run_timestamp": "2026-11-28T20:10:01",
+  "columns": [
+    {
+      "name": "TRANSACTION_CODE",
+      "source_header": "Code",
+      "position": 1,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "AC",
+        "PL",
+        "TC"
+      ],
+      "raw_sample_values": [
+        "AC",
+        "PL",
+        "TC"
+      ]
+    },
+    {
+      "name": "TRANSACTION_DESCRIPTION",
+      "source_header": "Description",
+      "position": 2,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Add Coverage",
+        "Plan Change",
+        "Tier Change"
+      ],
+      "raw_sample_values": [
+        "Add Coverage",
+        "Plan Change",
+        "Tier Change"
+      ]
+    },
+    {
+      "name": "TRANSACTION_MEANING",
+      "source_header": "What it means",
+      "position": 3,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "A member's coverage starts (new hire, new group, newborn, retiree election).",
+        "Same member, same sub-account, moves to a different benefit plan.",
+        "The subscriber's coverage tier changes (e.g. birth adds a child, a child ages out)."
+      ],
+      "raw_sample_values": [
+        "A member's coverage starts (new hire, new group, newborn, retiree election).",
+        "Same member, same sub-account, moves to a different benefit plan.",
+        "The subscriber's coverage tier changes (e.g. birth adds a child, a child ages out)."
+      ]
+    },
+    {
+      "name": "X12_834_MAINTENANCE_TYPE",
+      "source_header": "X12 834 Maintenance Type",
+      "position": 4,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "config",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "021 – Addition",
+        "001 – Change",
+        "024 – Cancellation or Termination"
+      ],
+      "raw_sample_values": [
+        "021 – Addition",
+        "001 – Change",
+        "024 – Cancellation or Termination"
+      ]
+    }
+  ]
+}

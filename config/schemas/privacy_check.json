@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-11-28T19:58:04",
+  "run_timestamp": "2026-11-28T20:10:01",
   "config_version": 3,
   "status": "PASS",
   "files_scanned": [
@@ -17,13 +17,19 @@
     "config/schemas/raw_member_json_schema.json",
     "config/schemas/raw_member_enrollment_csv_schema.json",
     "config/schemas/raw_member_enrollment_json_schema.json",
+    "config/schemas/raw_transaction_code_csv_schema.json",
+    "config/schemas/raw_transaction_code_json_schema.json",
+    "config/schemas/raw_coverage_transaction_csv_schema.json",
+    "config/schemas/raw_coverage_transaction_json_schema.json",
     "config/schemas/raw_account_comparison.json",
     "config/schemas/raw_account_plan_comparison.json",
+    "config/schemas/raw_coverage_transaction_comparison.json",
     "config/schemas/raw_member_comparison.json",
     "config/schemas/raw_member_enrollment_comparison.json",
     "config/schemas/raw_plan_comparison.json",
     "config/schemas/raw_product_comparison.json",
     "config/schemas/raw_subscriber_comparison.json",
+    "config/schemas/raw_transaction_code_comparison.json",
     "config/logs/schema_reader_2026-11-28.log"
   ],
   "sensitive_columns_checked": {
@@ -47,6 +53,10 @@
       "DATE_OF_BIRTH": 22
     },
     "member_enrollment": {
+      "MEMBER_NAME": 22
+    },
+    "transaction_code": {},
+    "coverage_transaction": {
       "MEMBER_NAME": 22
     }
   },

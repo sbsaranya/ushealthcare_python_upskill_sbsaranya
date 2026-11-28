@@ -1,0 +1,11 @@
+{
+  "dataset": "transaction_code",
+  "file_stem": "raw_transaction_code",
+  "run_timestamp": "2026-11-28T20:10:01",
+  "columns_only_in_csv": [],
+  "columns_only_in_json": [],
+  "type_differences": {},
+  "csv_row_count": 6,
+  "json_row_count": 6,
+  "row_count_difference": 0
+}

@@ -392,3 +392,86 @@ datasets:
         references: account.ACCOUNT_HCC_ID
       - column: BENEFIT_PLAN_ID
         references: plan.BENEFIT_PLAN_ID
+
+  transaction_code:
+    description: Reference list of coverage transaction codes and their X12 834 maintenance types
+    file_stem: raw_transaction_code
+    load_order: 8
+    depends_on: []                  # reference data
+
+    header_map:
+      "Code": TRANSACTION_CODE
+      "Description": TRANSACTION_DESCRIPTION
+      "What it means": TRANSACTION_MEANING
+      "X12 834 Maintenance Type": X12_834_MAINTENANCE_TYPE
+
+    column_types:
+      X12_834_MAINTENANCE_TYPE: string   # "021 – Addition"; Silver splits into code (021) + text, keeping the leading zero
+
+    sensitive_columns: []
+
+    preview_columns:
+      - TRANSACTION_CODE
+      - TRANSACTION_DESCRIPTION
+      - X12_834_MAINTENANCE_TYPE
+
+    # X12 834 INS03 maintenance types: 001 Change, 021 Addition, 024 Cancellation/Termination,
+    # 025 Reinstatement, 030 Audit or Compare (030 not used by this code set)
+    relationships: []
+
+  coverage_transaction:
+    description: Event history of coverage changes (add, plan change, tier change, account transfer, termination)
+    file_stem: raw_coverage_transaction
+    load_order: 9
+    depends_on: [member_enrollment, transaction_code]
+
+    header_map:
+      "Transaction ID": TRANSACTION_ID
+      "Member ID": MEMBER_ID
+      "Subscriber ID": SUBSCRIBER_ID
+      "Member Name": MEMBER_NAME
+      "Transaction Code": TRANSACTION_CODE
+      "Transaction Description": TRANSACTION_DESCRIPTION
+      "Effective Date": EFFECTIVE_DATE
+      "Status": TRANSACTION_STATUS
+      "Enrollment ID": ENROLLMENT_ID
+      "Account ID": ACCOUNT_HCC_ID
+      "Previous Account ID": PREVIOUS_ACCOUNT_HCC_ID
+      "Benefit Plan ID": BENEFIT_PLAN_ID
+      "Previous Benefit Plan ID": PREVIOUS_BENEFIT_PLAN_ID
+      "Coverage Tier": COVERAGE_TIER
+      "Previous Coverage Tier": PREVIOUS_COVERAGE_TIER
+      "Reason": TRANSACTION_REASON
+      "Source": TRANSACTION_SOURCE
+      "Processed Date": PROCESSED_DATE
+      "Retro (Y/N)": RETRO_FLAG
+
+    column_types:
+      EFFECTIVE_DATE: date          # for code T this is the LAST day covered; for all other codes the first day
+      PROCESSED_DATE: date
+      PREVIOUS_COVERAGE_TIER: string
+
+    sensitive_columns: [MEMBER_NAME]
+
+    preview_columns:
+      - TRANSACTION_ID
+      - MEMBER_ID
+      - TRANSACTION_CODE
+      - EFFECTIVE_DATE
+      - PROCESSED_DATE
+      - RETRO_FLAG
+
+    # Silver rules recorded so far:
+    #  - RETRO_FLAG = Y exactly when PROCESSED_DATE > EFFECTIVE_DATE
+    #  - TRANSACTION_STATUS = Future-dated when EFFECTIVE_DATE is after the as-of date, else Applied
+    #  - PL needs PREVIOUS_BENEFIT_PLAN_ID; TC needs PREVIOUS_COVERAGE_TIER; AT needs a different PREVIOUS_ACCOUNT_HCC_ID
+    #  - every enrollment span is opened by exactly one non-T transaction; T dates = enrollment termination dates
+    #  - HIPAA special enrollment: birth processed within the plan's request window (at least 30 days)
+    #  - COBRA: election period at least 60 days after the later of loss of coverage or the election notice
+    relationships:
+      - column: ENROLLMENT_ID
+        references: member_enrollment.ENROLLMENT_ID
+      - column: TRANSACTION_CODE
+        references: transaction_code.TRANSACTION_CODE
+      - column: MEMBER_ID
+        references: member.MEMBER_ID

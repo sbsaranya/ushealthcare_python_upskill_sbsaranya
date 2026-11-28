@@ -1,0 +1,11 @@
+{
+  "dataset": "coverage_transaction",
+  "file_stem": "raw_coverage_transaction",
+  "run_timestamp": "2026-11-28T20:10:01",
+  "columns_only_in_csv": [],
+  "columns_only_in_json": [],
+  "type_differences": {},
+  "csv_row_count": 45,
+  "json_row_count": 45,
+  "row_count_difference": 0
+}
