@@ -1,0 +1,318 @@
+{
+  "dataset": "member_enrollment",
+  "config_version": 3,
+  "source_file": "data/raw/csv/raw_member_enrollment.csv",
+  "format": "csv",
+  "json_layout": null,
+  "row_count": 39,
+  "column_count": 14,
+  "run_timestamp": "2026-11-28T19:58:04",
+  "columns": [
+    {
+      "name": "ENROLLMENT_ID",
+      "source_header": "Enrollment ID",
+      "position": 1,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "ENR-0001",
+        "ENR-0002",
+        "ENR-0003"
+      ],
+      "raw_sample_values": [
+        "ENR-0001",
+        "ENR-0002",
+        "ENR-0003"
+      ]
+    },
+    {
+      "name": "MEMBER_ID",
+      "source_header": "Member ID",
+      "position": 2,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "100001_01",
+        "100001_02",
+        "100001_03"
+      ],
+      "raw_sample_values": [
+        "100001_01",
+        "100001_02",
+        "100001_03"
+      ]
+    },
+    {
+      "name": "SUBSCRIBER_ID",
+      "source_header": "Subscriber ID",
+      "position": 3,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "100001",
+        "100002",
+        "100003"
+      ],
+      "raw_sample_values": [
+        "100001",
+        "100002",
+        "100003"
+      ]
+    },
+    {
+      "name": "MEMBER_NAME",
+      "source_header": "Member Name",
+      "position": 4,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "************er",
+        "**********er",
+        "**********er"
+      ],
+      "raw_sample_values": [
+        "************er",
+        "**********er",
+        "**********er"
+      ]
+    },
+    {
+      "name": "RELATIONSHIP",
+      "source_header": "Relationship",
+      "position": 5,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Subscriber",
+        "Spouse",
+        "Child"
+      ],
+      "raw_sample_values": [
+        "Subscriber",
+        "Spouse",
+        "Child"
+      ]
+    },
+    {
+      "name": "ACCOUNT_HCC_ID",
+      "source_header": "Account ID",
+      "position": 6,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "ACC100245-001",
+        "ACC100245-002",
+        "ACC100245-003"
+      ],
+      "raw_sample_values": [
+        "ACC100245-001",
+        "ACC100245-002",
+        "ACC100245-003"
+      ]
+    },
+    {
+      "name": "TOP_ACCOUNT_HCC_ID",
+      "source_header": "Top Account ID",
+      "position": 7,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "ACC100245",
+        "ACC100318"
+      ],
+      "raw_sample_values": [
+        "ACC100245",
+        "ACC100318"
+      ]
+    },
+    {
+      "name": "PLAN_SELECTION_ID",
+      "source_header": "Plan Selection ID",
+      "position": 8,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "APS-0001",
+        "APS-0002",
+        "APS-0004"
+      ],
+      "raw_sample_values": [
+        "APS-0001",
+        "APS-0002",
+        "APS-0004"
+      ]
+    },
+    {
+      "name": "BENEFIT_PLAN_ID",
+      "source_header": "Benefit Plan ID",
+      "position": 9,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "BP-1004",
+        "BP-1001",
+        "BP-1003"
+      ],
+      "raw_sample_values": [
+        "BP-1004",
+        "BP-1001",
+        "BP-1003"
+      ]
+    },
+    {
+      "name": "COVERAGE_TIER",
+      "source_header": "Coverage Tier",
+      "position": 10,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "config",
+      "nullable": true,
+      "null_count": 18,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Family",
+        "EE",
+        "EE+Spouse"
+      ],
+      "raw_sample_values": [
+        "Family",
+        "EE",
+        "EE+Spouse"
+      ]
+    },
+    {
+      "name": "ENROLLMENT_STATUS",
+      "source_header": "Status",
+      "position": 11,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Termed",
+        "Active",
+        "Pending"
+      ],
+      "raw_sample_values": [
+        "Termed",
+        "Active",
+        "Pending"
+      ]
+    },
+    {
+      "name": "EFFECTIVE_DATE",
+      "source_header": "Effective Date",
+      "position": 12,
+      "inferred_type": "date",
+      "spark_type": "DateType",
+      "type_source": "config",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "2019-01-01",
+        "2024-01-01",
+        "2020-07-01"
+      ],
+      "raw_sample_values": [
+        "2019-01-01",
+        "2024-01-01",
+        "2020-07-01"
+      ]
+    },
+    {
+      "name": "TERMINATION_DATE",
+      "source_header": "Termination Date",
+      "position": 13,
+      "inferred_type": "date",
+      "spark_type": "DateType",
+      "type_source": "config",
+      "nullable": true,
+      "null_count": 16,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "2023-12-31",
+        "2020-12-31",
+        "2025-12-31"
+      ],
+      "raw_sample_values": [
+        "2023-12-31",
+        "2020-12-31",
+        "2025-12-31"
+      ]
+    },
+    {
+      "name": "TERM_REASON",
+      "source_header": "Term Reason",
+      "position": 14,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": true,
+      "null_count": 16,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Plan retired – moved to BP-1001",
+        "Changed plan at open enrollment",
+        "Sub-account termed (plant divested)"
+      ],
+      "raw_sample_values": [
+        "Plan retired – moved to BP-1001",
+        "Changed plan at open enrollment",
+        "Sub-account termed (plant divested)"
+      ]
+    }
+  ]
+}

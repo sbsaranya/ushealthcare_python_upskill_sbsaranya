@@ -1,0 +1,11 @@
+{
+  "dataset": "subscriber",
+  "file_stem": "raw_subscriber",
+  "run_timestamp": "2026-11-28T19:58:04",
+  "columns_only_in_csv": [],
+  "columns_only_in_json": [],
+  "type_differences": {},
+  "csv_row_count": 11,
+  "json_row_count": 11,
+  "row_count_difference": 0
+}

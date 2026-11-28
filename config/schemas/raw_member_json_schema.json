@@ -1,0 +1,186 @@
+{
+  "dataset": "member",
+  "config_version": 3,
+  "source_file": "data/raw/json/raw_member.json",
+  "format": "json",
+  "json_layout": "json_lines",
+  "row_count": 22,
+  "column_count": 8,
+  "run_timestamp": "2026-11-28T19:58:03",
+  "columns": [
+    {
+      "name": "MEMBER_ID",
+      "source_header": "Member ID",
+      "position": 1,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "100001_01",
+        "100001_02",
+        "100001_03"
+      ],
+      "raw_sample_values": [
+        "100001_01",
+        "100001_02",
+        "100001_03"
+      ]
+    },
+    {
+      "name": "SUBSCRIBER_ID",
+      "source_header": "Subscriber ID",
+      "position": 2,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "100001",
+        "100002",
+        "100003"
+      ],
+      "raw_sample_values": [
+        "100001",
+        "100002",
+        "100003"
+      ]
+    },
+    {
+      "name": "MEMBER_SUFFIX",
+      "source_header": "Member Suffix",
+      "position": 3,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "config",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "01",
+        "02",
+        "03"
+      ],
+      "raw_sample_values": [
+        "01",
+        "02",
+        "03"
+      ]
+    },
+    {
+      "name": "RELATIONSHIP",
+      "source_header": "Relationship",
+      "position": 4,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Subscriber",
+        "Spouse",
+        "Child"
+      ],
+      "raw_sample_values": [
+        "Subscriber",
+        "Spouse",
+        "Child"
+      ]
+    },
+    {
+      "name": "FIRST_NAME",
+      "source_header": "First Name",
+      "position": 5,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "*****el",
+        "***ra",
+        "***an"
+      ],
+      "raw_sample_values": [
+        "*****el",
+        "***ra",
+        "***an"
+      ]
+    },
+    {
+      "name": "LAST_NAME",
+      "source_header": "Last Name",
+      "position": 6,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "****er",
+        "***an",
+        "****ez"
+      ],
+      "raw_sample_values": [
+        "****er",
+        "***an",
+        "****ez"
+      ]
+    },
+    {
+      "name": "GENDER_CODE",
+      "source_header": "Gender",
+      "position": 7,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "M",
+        "F"
+      ],
+      "raw_sample_values": [
+        "M",
+        "F"
+      ]
+    },
+    {
+      "name": "DATE_OF_BIRTH",
+      "source_header": "Date of Birth",
+      "position": 8,
+      "inferred_type": "date",
+      "spark_type": "DateType",
+      "type_source": "config",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "********14",
+        "********22",
+        "********09"
+      ],
+      "raw_sample_values": [
+        "********14",
+        "********22",
+        "********09"
+      ]
+    }
+  ]
+}

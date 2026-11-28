@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-11-28T18:45:10",
+  "run_timestamp": "2026-11-28T19:58:04",
   "config_version": 3,
   "status": "PASS",
   "files_scanned": [
@@ -11,10 +11,19 @@
     "config/schemas/raw_plan_json_schema.json",
     "config/schemas/raw_account_plan_csv_schema.json",
     "config/schemas/raw_account_plan_json_schema.json",
+    "config/schemas/raw_subscriber_csv_schema.json",
+    "config/schemas/raw_subscriber_json_schema.json",
+    "config/schemas/raw_member_csv_schema.json",
+    "config/schemas/raw_member_json_schema.json",
+    "config/schemas/raw_member_enrollment_csv_schema.json",
+    "config/schemas/raw_member_enrollment_json_schema.json",
     "config/schemas/raw_account_comparison.json",
     "config/schemas/raw_account_plan_comparison.json",
+    "config/schemas/raw_member_comparison.json",
+    "config/schemas/raw_member_enrollment_comparison.json",
     "config/schemas/raw_plan_comparison.json",
     "config/schemas/raw_product_comparison.json",
+    "config/schemas/raw_subscriber_comparison.json",
     "config/logs/schema_reader_2026-11-28.log"
   ],
   "sensitive_columns_checked": {
@@ -23,7 +32,23 @@
     },
     "product": {},
     "plan": {},
-    "account_plan": {}
+    "account_plan": {},
+    "subscriber": {
+      "FIRST_NAME": 11,
+      "LAST_NAME": 10,
+      "DATE_OF_BIRTH": 11,
+      "ADDRESS_LINE_1": 11,
+      "ZIP_CODE": 10,
+      "HIRE_DATE": 11
+    },
+    "member": {
+      "FIRST_NAME": 21,
+      "LAST_NAME": 10,
+      "DATE_OF_BIRTH": 22
+    },
+    "member_enrollment": {
+      "MEMBER_NAME": 22
+    }
   },
   "leaks": []
 }

@@ -262,3 +262,133 @@ datasets:
         references: account.ACCOUNT_HCC_ID
       - column: BENEFIT_PLAN_ID
         references: plan.BENEFIT_PLAN_ID
+
+  subscriber:
+    description: Subscribers (employees, COBRA continuees, retirees) - person-level demographics
+    file_stem: raw_subscriber       # matches raw_subscriber.csv and raw_subscriber.json
+    load_order: 5
+    depends_on: []                  # account link lives in member_enrollment
+
+    header_map:
+      "Subscriber ID": SUBSCRIBER_ID
+      "First Name": FIRST_NAME
+      "Last Name": LAST_NAME
+      "Gender": GENDER_CODE
+      "Date of Birth": DATE_OF_BIRTH
+      "Address Line 1": ADDRESS_LINE_1
+      "City": CITY_NAME
+      "State": STATE_CODE
+      "ZIP": ZIP_CODE
+      "Hire Date": HIRE_DATE
+      "Employment Status": EMPLOYMENT_STATUS
+      "Dependents": DEPENDENT_COUNT
+
+    column_types:
+      DATE_OF_BIRTH: date
+      HIRE_DATE: date
+      DEPENDENT_COUNT: integer      # must equal the subscriber's dependent rows in member (Silver)
+
+    # Masking standard: HIPAA limited data set (45 CFR 164.514(e)) - names and street address removed;
+    # town/city may remain. Stricter than LDS: ZIP_CODE and HIRE_DATE also masked (DATE_OF_BIRTH is in defaults).
+    # CITY_NAME left visible: city names also appear in business account names (e.g. "Toledo Plant"),
+    # which made the privacy check report false leaks when CITY_NAME was masked.
+    sensitive_columns: [FIRST_NAME, LAST_NAME, ADDRESS_LINE_1, ZIP_CODE, HIRE_DATE]
+
+    preview_columns:
+      - SUBSCRIBER_ID
+      - GENDER_CODE
+      - STATE_CODE
+      - EMPLOYMENT_STATUS
+      - DEPENDENT_COUNT
+
+    relationships: []
+
+  member:
+    description: All covered people - subscribers (relationship Subscriber) and their dependents
+    file_stem: raw_member
+    load_order: 6
+    depends_on: [subscriber]
+
+    header_map:
+      "Member ID": MEMBER_ID
+      "Subscriber ID": SUBSCRIBER_ID
+      "Member Suffix": MEMBER_SUFFIX
+      "Relationship": RELATIONSHIP
+      "First Name": FIRST_NAME
+      "Last Name": LAST_NAME
+      "Gender": GENDER_CODE
+      "Date of Birth": DATE_OF_BIRTH
+
+    column_types:
+      MEMBER_SUFFIX: string         # "01", "02" - keep leading zero
+      DATE_OF_BIRTH: date
+
+    sensitive_columns: [FIRST_NAME, LAST_NAME]   # DATE_OF_BIRTH is in defaults
+
+    preview_columns:
+      - MEMBER_ID
+      - SUBSCRIBER_ID
+      - MEMBER_SUFFIX
+      - RELATIONSHIP
+      - GENDER_CODE
+
+    # Silver: subscriber row (suffix 01) name/DOB must match subscriber; children must be under 26
+    # while covered as Child (ACA dependent coverage to age 26).
+    relationships:
+      - column: SUBSCRIBER_ID
+        references: subscriber.SUBSCRIBER_ID
+
+  member_enrollment:
+    description: Each member's coverage spans - account, plan selection, plan, tier and dates
+    file_stem: raw_member_enrollment
+    load_order: 7
+    depends_on: [member, account_plan]
+
+    header_map:
+      "Enrollment ID": ENROLLMENT_ID
+      "Member ID": MEMBER_ID
+      "Subscriber ID": SUBSCRIBER_ID
+      "Member Name": MEMBER_NAME
+      "Relationship": RELATIONSHIP
+      "Account ID": ACCOUNT_HCC_ID
+      "Top Account ID": TOP_ACCOUNT_HCC_ID
+      "Plan Selection ID": PLAN_SELECTION_ID
+      "Benefit Plan ID": BENEFIT_PLAN_ID
+      "Coverage Tier": COVERAGE_TIER
+      "Status": ENROLLMENT_STATUS
+      "Effective Date": EFFECTIVE_DATE
+      "Termination Date": TERMINATION_DATE
+      "Term Reason": TERM_REASON
+
+    column_types:
+      EFFECTIVE_DATE: date
+      TERMINATION_DATE: date
+      COVERAGE_TIER: string         # populated on the subscriber row only; dependents inherit it
+
+    sensitive_columns: [MEMBER_NAME]
+
+    preview_columns:
+      - ENROLLMENT_ID
+      - MEMBER_ID
+      - ACCOUNT_HCC_ID
+      - BENEFIT_PLAN_ID
+      - COVERAGE_TIER
+      - ENROLLMENT_STATUS
+
+    # Silver rules recorded so far:
+    #  - dates within the plan selection; no overlapping spans per member; tier offered by the account
+    #  - tier matches the dependents covered on that date
+    #  - ACA waiting period: first coverage start <= hire date + 90 days (and the account's own rule)
+    #  - HIPAA special enrollment: newborn coverage effective on the date of birth
+    #  - COBRA: plan must be offered to the ORIGINATING active account (previous enrollment row);
+    #    termination of employment max 18 months; loss of dependent status / Medicare entitlement up to 36;
+    #    every coverage loss caused by a qualifying event needs a COBRA offer recorded
+    relationships:
+      - column: MEMBER_ID
+        references: member.MEMBER_ID
+      - column: PLAN_SELECTION_ID
+        references: account_plan.PLAN_SELECTION_ID
+      - column: ACCOUNT_HCC_ID
+        references: account.ACCOUNT_HCC_ID
+      - column: BENEFIT_PLAN_ID
+        references: plan.BENEFIT_PLAN_ID
