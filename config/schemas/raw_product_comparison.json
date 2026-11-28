@@ -1,7 +1,7 @@
 {
   "dataset": "product",
   "file_stem": "raw_product",
-  "run_timestamp": "2026-11-28T15:34:24",
+  "run_timestamp": "2026-11-28T18:45:10",
   "columns_only_in_csv": [],
   "columns_only_in_json": [],
   "type_differences": {},

@@ -213,3 +213,52 @@ datasets:
         references: product.PRODUCT_ID
       - column: REPLACED_BY_PLAN_ID
         references: plan.BENEFIT_PLAN_ID    # self-reference: retired plan -> replacement plan
+
+  account_plan:
+    description: Which plans each child account offers (account-plan selection), with dates, tiers and default plan
+    file_stem: raw_account_plan     # matches raw_account_plan.csv and raw_account_plan.json
+    load_order: 4
+    depends_on: [account, plan]
+
+    header_map:
+      "Plan Selection ID": PLAN_SELECTION_ID
+      "Account ID": ACCOUNT_HCC_ID
+      "Account Name": ACCOUNT_NAME
+      "Top Account ID": TOP_ACCOUNT_HCC_ID
+      "Benefit Plan ID": BENEFIT_PLAN_ID
+      "Plan Name": PLAN_NAME
+      "Status": SELECTION_STATUS
+      "Effective Date": EFFECTIVE_DATE
+      "Termination Date": TERMINATION_DATE
+      "Term Reason": TERM_REASON
+      "Coverage Tiers Offered": COVERAGE_TIERS_OFFERED
+      "Default Plan (Y/N)": DEFAULT_PLAN_FLAG
+
+    column_types:
+      EFFECTIVE_DATE: date
+      TERMINATION_DATE: date
+      COVERAGE_TIERS_OFFERED: string   # "EE / EE+Spouse / EE+Child(ren) / Family"; one row per tier in Silver
+
+    sensitive_columns: []           # reference data: no PHI, no confidential identifiers
+
+    preview_columns:
+      - PLAN_SELECTION_ID
+      - ACCOUNT_HCC_ID
+      - BENEFIT_PLAN_ID
+      - SELECTION_STATUS
+      - EFFECTIVE_DATE
+      - DEFAULT_PLAN_FLAG
+
+    # Documentation only - checked in the Silver layer
+    # Natural key: ACCOUNT_HCC_ID + BENEFIT_PLAN_ID + EFFECTIVE_DATE (PLAN_SELECTION_ID is the surrogate key)
+    # Silver rules: selection dates within account and plan dates; exactly one default plan per account per date;
+    #   ACCOUNT_NAME / TOP_ACCOUNT_HCC_ID / PLAN_NAME must match their source records.
+    # COBRA: COBRA sub-accounts list the union of their active groups' plans. A COBRA member may only elect plans
+    #   offered to their ORIGINATING active account (similarly situated rule) - enforce at member level.
+    relationships:
+      - column: ACCOUNT_HCC_ID
+        references: account.ACCOUNT_HCC_ID
+      - column: TOP_ACCOUNT_HCC_ID
+        references: account.ACCOUNT_HCC_ID
+      - column: BENEFIT_PLAN_ID
+        references: plan.BENEFIT_PLAN_ID

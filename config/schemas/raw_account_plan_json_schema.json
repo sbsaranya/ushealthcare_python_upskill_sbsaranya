@@ -1,0 +1,272 @@
+{
+  "dataset": "account_plan",
+  "config_version": 3,
+  "source_file": "data/raw/json/raw_account_plan.json",
+  "format": "json",
+  "json_layout": "json_lines",
+  "row_count": 29,
+  "column_count": 12,
+  "run_timestamp": "2026-11-28T18:45:10",
+  "columns": [
+    {
+      "name": "PLAN_SELECTION_ID",
+      "source_header": "Plan Selection ID",
+      "position": 1,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "APS-0001",
+        "APS-0002",
+        "APS-0003"
+      ],
+      "raw_sample_values": [
+        "APS-0001",
+        "APS-0002",
+        "APS-0003"
+      ]
+    },
+    {
+      "name": "ACCOUNT_HCC_ID",
+      "source_header": "Account ID",
+      "position": 2,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "ACC100245-001",
+        "ACC100245-002",
+        "ACC100245-003"
+      ],
+      "raw_sample_values": [
+        "ACC100245-001",
+        "ACC100245-002",
+        "ACC100245-003"
+      ]
+    },
+    {
+      "name": "ACCOUNT_NAME",
+      "source_header": "Account Name",
+      "position": 3,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Corporate Salaried – Grand Rapids",
+        "Hourly Production – Grand Rapids",
+        "Toledo Plant – UAW Local 1250"
+      ],
+      "raw_sample_values": [
+        "Corporate Salaried – Grand Rapids",
+        "Hourly Production – Grand Rapids",
+        "Toledo Plant – UAW Local 1250"
+      ]
+    },
+    {
+      "name": "TOP_ACCOUNT_HCC_ID",
+      "source_header": "Top Account ID",
+      "position": 4,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "ACC100245",
+        "ACC100318"
+      ],
+      "raw_sample_values": [
+        "ACC100245",
+        "ACC100318"
+      ]
+    },
+    {
+      "name": "BENEFIT_PLAN_ID",
+      "source_header": "Benefit Plan ID",
+      "position": 5,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "BP-1004",
+        "BP-1001",
+        "BP-1002"
+      ],
+      "raw_sample_values": [
+        "BP-1004",
+        "BP-1001",
+        "BP-1002"
+      ]
+    },
+    {
+      "name": "PLAN_NAME",
+      "source_header": "Plan Name",
+      "position": 6,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Great Lakes PPO 250 (Legacy)",
+        "Great Lakes PPO 500",
+        "Great Lakes HMO 1000"
+      ],
+      "raw_sample_values": [
+        "Great Lakes PPO 250 (Legacy)",
+        "Great Lakes PPO 500",
+        "Great Lakes HMO 1000"
+      ]
+    },
+    {
+      "name": "SELECTION_STATUS",
+      "source_header": "Status",
+      "position": 7,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Termed",
+        "Active",
+        "Pending"
+      ],
+      "raw_sample_values": [
+        "Termed",
+        "Active",
+        "Pending"
+      ]
+    },
+    {
+      "name": "EFFECTIVE_DATE",
+      "source_header": "Effective Date",
+      "position": 8,
+      "inferred_type": "date",
+      "spark_type": "DateType",
+      "type_source": "config",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "2019-01-01",
+        "2024-01-01",
+        "2021-01-01"
+      ],
+      "raw_sample_values": [
+        "2019-01-01",
+        "2024-01-01",
+        "2021-01-01"
+      ]
+    },
+    {
+      "name": "TERMINATION_DATE",
+      "source_header": "Termination Date",
+      "position": 9,
+      "inferred_type": "date",
+      "spark_type": "DateType",
+      "type_source": "config",
+      "nullable": true,
+      "null_count": 17,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "2023-12-31",
+        "2025-12-31",
+        "2025-06-30"
+      ],
+      "raw_sample_values": [
+        "2023-12-31",
+        "2025-12-31",
+        "2025-06-30"
+      ]
+    },
+    {
+      "name": "TERM_REASON",
+      "source_header": "Term Reason",
+      "position": 10,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": true,
+      "null_count": 17,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "Plan retired – replaced by BP-1001",
+        "Sub-account termed (plant divested)",
+        "Plan termed – employer dropped EPO at renewal"
+      ],
+      "raw_sample_values": [
+        "Plan retired – replaced by BP-1001",
+        "Sub-account termed (plant divested)",
+        "Plan termed – employer dropped EPO at renewal"
+      ]
+    },
+    {
+      "name": "COVERAGE_TIERS_OFFERED",
+      "source_header": "Coverage Tiers Offered",
+      "position": 11,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "config",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {},
+      "sample_values": [
+        "EE / EE+Spouse / EE+Child(ren) / Family",
+        "Retiree / Retiree+Spouse"
+      ],
+      "raw_sample_values": [
+        "EE / EE+Spouse / EE+Child(ren) / Family",
+        "Retiree / Retiree+Spouse"
+      ]
+    },
+    {
+      "name": "DEFAULT_PLAN_FLAG",
+      "source_header": "Default Plan (Y/N)",
+      "position": 12,
+      "inferred_type": "string",
+      "spark_type": "StringType",
+      "type_source": "inferred",
+      "nullable": false,
+      "null_count": 0,
+      "cast_failures": 0,
+      "flags": {
+        "boolean_candidate": true
+      },
+      "sample_values": [
+        "Y",
+        "N"
+      ],
+      "raw_sample_values": [
+        "Y",
+        "N"
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-11-28T15:34:24",
+  "run_timestamp": "2026-11-28T18:45:10",
   "config_version": 3,
   "status": "PASS",
   "files_scanned": [
@@ -9,7 +9,10 @@
     "config/schemas/raw_product_json_schema.json",
     "config/schemas/raw_plan_csv_schema.json",
     "config/schemas/raw_plan_json_schema.json",
+    "config/schemas/raw_account_plan_csv_schema.json",
+    "config/schemas/raw_account_plan_json_schema.json",
     "config/schemas/raw_account_comparison.json",
+    "config/schemas/raw_account_plan_comparison.json",
     "config/schemas/raw_plan_comparison.json",
     "config/schemas/raw_product_comparison.json",
     "config/logs/schema_reader_2026-11-28.log"
@@ -19,7 +22,8 @@
       "TAX_ID_EIN": 2
     },
     "product": {},
-    "plan": {}
+    "plan": {},
+    "account_plan": {}
   },
   "leaks": []
 }
